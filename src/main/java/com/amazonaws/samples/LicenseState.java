@@ -15,7 +15,7 @@ public class LicenseState {
 
  public static void main(String[] args) throws Exception {
 
-    String photo = "plate-3.jpg"; // images in s3
+    String photo = "plates/plate-0.jpg"; // images in s3
     String bucket = "nathan-rekog-demo"; // my bucket name
     String[] usStates = {"California", "Alabama", "Arkansas", "Arizona", "Alaska", "Colorado", "Connecticut", 
     		"Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", 
