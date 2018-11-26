@@ -60,7 +60,7 @@ public class LicenseState {
     	   		   //System.out.println();
     	   		   if(usStates[i].equals(comp)) {
     	   			   System.out.println("Detected state: " + comp);
-    	   			   break;
+    	   			   return;
     	   		   }
     	   	   }
                
