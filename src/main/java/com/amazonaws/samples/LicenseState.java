@@ -15,15 +15,15 @@ public class LicenseState {
 
  public static void main(String[] args) throws Exception {
 
-    String photo = "plates/plate-0.jpg"; // images in s3
+    String photo = "plates/plate-q.jpg"; // images in s3
     String bucket = "nathan-rekog-demo"; // my bucket name
     String[] usStates = {"California", "Alabama", "Arkansas", "Arizona", "Alaska", "Colorado", "Connecticut", 
     		"Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", 
     		"Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
-    		"Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", 
-    		"North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", 
-    		"South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", 
-    		"West Virginia", "Wisconsin", "Wyoming" }; // 50 us states
+    		"Missouri", "Montana", "Nebraska", "Nevada", "Newhampshire", "Newjersey", "Newmexico", "Newyork", 
+    		"Northcarolina", "Northdakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", 
+    		"Southcarolina", "Southdakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", 
+    		"Westbirginia", "Wisconsin", "Wyoming" }; // 50 us states
 
     AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.standard().withRegion("us-west-2").build();
 
@@ -50,7 +50,7 @@ public class LicenseState {
     	   	   String comp = text.getDetectedText();
     	   	   comp = comp.substring(0,1).toUpperCase() + comp.substring(1).toLowerCase();
     	   	   //System.out.println(length);
-    	   	   //System.out.println("Detected: "+ comp);
+    	   	   System.out.println("Detected: "+ comp);
     	   	   //System.out.println("Confidence: " + text.getConfidence().toString());
     	   	   //System.out.println("Id : " + text.getId());
     	   	   //System.out.println("Parent Id: " + text.getParentId());
