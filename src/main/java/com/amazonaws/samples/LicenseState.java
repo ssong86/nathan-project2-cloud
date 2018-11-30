@@ -15,7 +15,7 @@ public class LicenseState {
 
  public static void main(String[] args) throws Exception {
 
-    String photo = "plates/plate-q.jpg"; // images in s3
+    String photo = "plates/plate-t.jpg"; // images in s3
     String bucket = "nathan-rekog-demo"; // my bucket name
     String[] usStates = {"California", "Alabama", "Arkansas", "Arizona", "Alaska", "Colorado", "Connecticut", 
     		"Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", 
@@ -58,7 +58,7 @@ public class LicenseState {
     	   	   for(int i=0; i < usStates.length; i++) {
     	   		   //System.out.println(usStates[i]);
     	   		   //System.out.println();
-    	   		   if(usStates[i].equals(comp)) {
+    	   		   if(comp.contains(usStates[i])) {
     	   			   System.out.println("Detected state: " + comp);
     	   			   return;
     	   		   }

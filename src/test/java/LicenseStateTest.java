@@ -70,8 +70,8 @@ public class LicenseStateTest {
 	    	   	   for(int i=0; i < usStates.length; i++) {
 	    	   		   //System.out.println(usStates[i]);
 	    	   		   //System.out.println();
-	    	   		   if(usStates[i].equals(comp)) {
-	    	   			   System.out.println("Detected state: " + comp);
+	    	   		   if(comp.contains(usStates[i])) {
+	    	   			   System.out.println("Detected state: " + usStates[i]);
 	    	   			   return;
 	    	   		   }
 	    	   	   }
