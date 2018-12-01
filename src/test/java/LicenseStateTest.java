@@ -15,8 +15,8 @@ public class LicenseStateTest {
 	
 	    String[] photos = {"nplate-0.jpg", "nplate-1.png", "nplate-2.png", "nplate-3.jpg", "nplate-4.jpg", "nplate-5.jpg",
 	    		"nplate-6.jpg", "nplate-7.jpg", "nplate-8.jpg", "nplate-9.png","plate-0.jpg", "plate-1.jpg", "plate-2.jpeg", 
-	    		"plate-3.jpg", "plate-4.jpg", "plate-5.jpg", "plate-6.jpg", "plate-7.jpg", "plate-8.jpg", "plate-9.jpg", 
-	    		"plate-Q.png", "plate-T.png", "plate-X.png", "plate-a.jpg", "plate-b.jpg", "plate-c.jpg", "plate-d.jpg", 
+	    		"plate-3.jpg", "plate-4.jpg", "plate-5.jpg", "plate-6.jpg", "plate-7.jpg", "plate-8.jpg", "plate-9.jpg", "plate-10.jpeg",
+	    		"plate-11.jpg", "plate-Q.png", "plate-T.png", "plate-X.png", "plate-a.jpg", "plate-b.jpg", "plate-c.jpg", "plate-d.jpg", 
 	    		"plate-e.jpg", "plate-f.jpg", "plate-g.jpg", "plate-h.jpg", "plate-i.jpg", "plate-j.jpg", "plate-k.jpg", 
 	    		"plate-l.jpg", "plate-m.jpg", "plate-n.jpg", "plate-o.jpg", "plate-p.jpg", "plate-q.jpg", "plate-r.jpg", 
 	    		"plate-s.jpg", "plate-t.jpg", "plate-u.jpg", "plate-v.jpg", "plate-w.jpg", "plate-x.jpg", "plate-y.jpg", "plate-z.jpg"} ; // images in s3
