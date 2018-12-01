@@ -32,14 +32,16 @@ public class LicenseStateTest {
 	}
 	
     public static void detectStates(String photo, String bucket){
-    	String[] usStates = {"California", "Alabama", "Arkansas", "Arizona", "Alaska", "Colorado", "Connecticut", 
-        		"Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", 
-        		"Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
-        		"Missouri", "Montana", "Nebraska", "Nevada", "Newhampshire", "Newjersey", "Newmexico", "Newyork", 
-        		"Northcarolina", "Northdakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", 
-        		"Southcarolina", "Southdakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", 
-        		"Westbirginia", "Wisconsin", "Wyoming" }; // 50 us states
+    	String[] usStates = {"california", "alabama", "arkansas", "arizona", "alaska", "colorado", "connecticut", 
+        		"delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", 
+        		"kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi",
+        		"missouri", "montana", "nebraska", "nevada", "hampshire", "jersey", "mexico", "york", 
+        		"north carolina", "north dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", 
+        		"south carolina", "southdakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", 
+        		"west virginia", "wisconsin", "wyoming" }; // 50 us states
+    	String foundState = "";
 	    AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.standard().withRegion("us-west-2").build();
+	    
 	
 	    DetectTextRequest request = new DetectTextRequest()
 	            .withImage(new Image()
@@ -58,27 +60,44 @@ public class LicenseStateTest {
 	      //System.out.println("Detected list: "+ textDetections.getDetectedText());
 	        
 	       for (TextDetection text: textDetections) {
-	    	   	   String comp = text.getDetectedText();
-	    	   	   comp = comp.substring(0,1).toUpperCase() + comp.substring(1).toLowerCase();
-	    	   	   //System.out.println(length);
-	    		   //System.out.println("Detected: "+ comp);
-	    		   //System.out.println("Confidence: " + text.getConfidence().toString());
-	    		   //System.out.println("Id : " + text.getId());
-	    		   //System.out.println("Parent Id: " + text.getParentId());
-	    		   //System.out.println("Type: " + text.getType());
-	    	   	  
-	    	   	   for(int i=0; i < usStates.length; i++) {
-	    	   		   //System.out.println(usStates[i]);
-	    	   		   //System.out.println();
-	    	   		   if(comp.contains(usStates[i])) {
-	    	   			   System.out.println("Detected state: " + usStates[i]);
-	    	   			   return;
-	    	   		   }
-	    	   	   }
-	               
+		   	   String comp = text.getDetectedText();
+		   	   String type = text.getType();
+		   	   comp = comp.substring(0).toLowerCase();
+		   	   
+		   	   //System.out.println(length);
+		   	   //System.out.println("Detected: "+ comp);
+		   	   //System.out.println("Confidence: " + text.getConfidence().toString());
+		   	   //System.out.println("Id : " + text.getId());
+		   	   //System.out.println("Parent Id: " + text.getParentId());
+		   	   //System.out.println("Type: " + text.getType());  
+		   	  
+		   	   //if(type.equals("LINE"))
+		   	   
+		   	   
+		   	   for(int i=0; i < usStates.length; i++) {
+		   		   //System.out.println(usStates[i]);
+		   		   //System.out.println();
+		   		   
+		   		   if(comp.contains(usStates[i]) && type.equals("LINE")) { //type line
+		   			   foundState = usStates[i];
+		   			   if(foundState.equals("hampshire")||foundState.equals("jersey")||foundState.equals("mexico")||foundState.equals("york")) {
+		   				   foundState = "new " + foundState;
+		   				   
+		   			   }
+		   			   
+		   			   System.out.println("Detected state: " + foundState);
+		   			   return;
+		   		   }
+		   		   
+		   	   }
+		             
 	       }
+	       if(foundState.equals("")) {
+			   System.out.println("No detection");
+			   //return;
+		   }
 	    } catch(AmazonRekognitionException e) {
 	       e.printStackTrace();
 	    }
- }
+	 }
 }
